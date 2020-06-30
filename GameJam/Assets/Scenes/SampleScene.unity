@@ -168,6 +168,9 @@ GameObject:
   - component: {fileID: 451215527}
   - component: {fileID: 451215530}
   - component: {fileID: 451215529}
+  - component: {fileID: 451215531}
+  - component: {fileID: 451215532}
+  - component: {fileID: 451215533}
   m_Layer: 0
   m_Name: Sane_Edge_0
   m_TagString: Untagged
@@ -284,6 +287,53 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &451215531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451215526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e37bbf7d9fecfa42b8b115c733e850a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  distance: 2
+  rbEnemy: {fileID: 451215530}
+  obj: {fileID: 451215532}
+--- !u!114 &451215532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451215526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc2f57ed7da53342821d5335c7df34e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &451215533
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451215526}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95de1b68aa0347240a2d08cbf62f64a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &456297245
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +514,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -636,6 +686,7 @@ GameObject:
   - component: {fileID: 1390671760}
   - component: {fileID: 1390671761}
   - component: {fileID: 1390671762}
+  - component: {fileID: 1390671763}
   m_Layer: 0
   m_Name: Main_Character_0
   m_TagString: Untagged
@@ -720,7 +771,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1.55
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -765,8 +816,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbPlayer: {fileID: 1390671759}
+  obj: {fileID: 1390671763}
   moveSpeed: 5
-  jumpForce: 3
+  jumpForce: 8
 --- !u!95 &1390671762
 Animator:
   serializedVersion: 3
@@ -786,3 +838,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1390671763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390671756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc2f57ed7da53342821d5335c7df34e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
