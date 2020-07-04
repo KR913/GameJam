@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class ObjectMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 5f;
-    [SerializeField] float jumpForce = 5f;
+    [SerializeField] float moveSpeed;
+    [SerializeField] float jumpForce;
     Rigidbody2D rb;
+    Vector2 moveHorizontal, moveVertical;
     bool allowJump = false;
 
     // Start is called before the first frame update
@@ -20,33 +21,40 @@ public class ObjectMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void moveRight(Animator anim)
     {
+        moveHorizontal = new Vector2(-transform.localScale.x * moveSpeed, 0);
+
         anim.SetBool("isRunning", true);
-        turnLeft();
-        rb.transform.Translate(new Vector3(moveSpeed * Time.deltaTime, 0, 0));
-        //rb.AddForce(Vector2.right*moveSpeed);
+        turnRight();
+        //rb.transform.Translate(new Vector3(moveSpeed * Time.deltaTime, 0, 0));
+        rb.AddForce(moveHorizontal);
     }
 
     public void moveLeft(Animator anim)
     {
+        moveHorizontal = new Vector2(-transform.localScale.x * moveSpeed, 0);
+
         anim.SetBool("isRunning", true);
-        turnRight();
-        rb.transform.Translate(new Vector3(-moveSpeed * Time.deltaTime, 0, 0));
-        //rb.AddForce(move, 0);
+        turnLeft();
+        //rb.transform.Translate(new Vector3(-moveSpeed * Time.deltaTime, 0, 0));
+        rb.AddForce(moveHorizontal);
     }
 
     public void moveUp(Animator anim)
     {
         if (allowJump == true)
         {
+            moveVertical = new Vector2(0, transform.localScale.y * jumpForce);
+
             anim.SetBool("isJumping", true);
             anim.SetBool("isRunning", false);
-            rb.transform.Translate(new Vector3(0, jumpForce * Time.deltaTime, 0));
-            //rb.AddForce(Vector2.up * jumpForce);
+            //rb.transform.Translate(new Vector3(0, jumpForce * Time.deltaTime, 0));
+            rb.AddForce(moveVertical);
+            allowJump = false;
         }
     }
 
@@ -58,19 +66,17 @@ public class ObjectMovement : MonoBehaviour
 
     public void turnRight()
     {
-        transform.localScale = new Vector2(1, 1);
+        transform.localScale = new Vector2(-1, 1);
     }
 
     public void turnLeft()
     {
-        transform.localScale = new Vector2(-1, 1);
+        transform.localScale = new Vector2(1, 1);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "ground" || collision.gameObject.tag == "planet")
             allowJump = true;
-        else
-            allowJump = false;
     }
 }
