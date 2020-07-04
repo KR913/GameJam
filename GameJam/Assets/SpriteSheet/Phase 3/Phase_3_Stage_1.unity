@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 100282289}
   m_Layer: 0
   m_Name: Start
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,6 +229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Planet3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224015831904765659, guid: be5fcbd4761504442b9b82005ea6884c,
+        type: 3}
+      propertyPath: m_TagString
+      value: planet
       objectReference: {fileID: 0}
     - target: {fileID: 6224015831904765662, guid: be5fcbd4761504442b9b82005ea6884c,
         type: 3}
@@ -515,6 +520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Planet2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224015831904765659, guid: be5fcbd4761504442b9b82005ea6884c,
+        type: 3}
+      propertyPath: m_TagString
+      value: planet
       objectReference: {fileID: 0}
     - target: {fileID: 6224015831904765662, guid: be5fcbd4761504442b9b82005ea6884c,
         type: 3}
@@ -1110,6 +1120,7 @@ GameObject:
   - component: {fileID: 1318578656}
   - component: {fileID: 1318578655}
   - component: {fileID: 1318578654}
+  - component: {fileID: 1318578662}
   m_Layer: 0
   m_Name: Main_Character_0
   m_TagString: Untagged
@@ -1162,10 +1173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83800d3233fe944468bd604f622656f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbPlayer: {fileID: 1318578659}
-  obj: {fileID: 1318578657}
-  moveSpeed: 5
-  jumpForce: 3
 --- !u!114 &1318578657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1176,6 +1183,66 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dc2f57ed7da53342821d5335c7df34e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &1318578658
@@ -1288,6 +1355,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1318578662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318578653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91c3be609b02d2408bb3d04dbaf86e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 8
 --- !u!1 &1331191262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,6 +1658,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Planet1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224015831904765659, guid: be5fcbd4761504442b9b82005ea6884c,
+        type: 3}
+      propertyPath: m_TagString
+      value: planet
       objectReference: {fileID: 0}
     - target: {fileID: 6224015831904765662, guid: be5fcbd4761504442b9b82005ea6884c,
         type: 3}
