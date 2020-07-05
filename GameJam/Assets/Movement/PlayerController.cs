@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A) || Input.GetKeyDown(KeyCode.W))
         {
             if (Input.GetKey(KeyCode.D))
             {
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
             {
                 obj.moveLeft(anim);
             }
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 obj.moveUp(anim);
             }

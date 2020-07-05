@@ -7,6 +7,7 @@ using UnityEngine;
 public class ObjectMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
+    [SerializeField] float accel;
     [SerializeField] float jumpForce;
     Rigidbody2D rb;
     Vector2 moveHorizontal, moveVertical;
@@ -20,28 +21,41 @@ public class ObjectMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
+    {/*
+        if (rb.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
+            allowJump = true;
+        }
+        else
+        {
+            allowJump = false;
+        }*/
     }
 
     public void moveRight(Animator anim)
     {
-        moveHorizontal = new Vector2(-transform.localScale.x * moveSpeed, 0);
+        if (rb.velocity.x < moveSpeed)
+        {
+            moveHorizontal = new Vector2(-transform.localScale.x * accel, 0);
 
-        anim.SetBool("isRunning", true);
-        turnRight();
-        //rb.transform.Translate(new Vector3(moveSpeed * Time.deltaTime, 0, 0));
-        rb.AddForce(moveHorizontal);
+            anim.SetBool("isRunning", true);
+            turnRight();
+            //rb.transform.Translate(new Vector3(moveSpeed * Time.deltaTime, 0, 0));
+            rb.AddForce(moveHorizontal);
+        }
     }
 
     public void moveLeft(Animator anim)
     {
-        moveHorizontal = new Vector2(-transform.localScale.x * moveSpeed, 0);
+        if (rb.velocity.x > -moveSpeed)
+        {
+            moveHorizontal = new Vector2(-transform.localScale.x * accel, 0);
 
-        anim.SetBool("isRunning", true);
-        turnLeft();
-        //rb.transform.Translate(new Vector3(-moveSpeed * Time.deltaTime, 0, 0));
-        rb.AddForce(moveHorizontal);
+            anim.SetBool("isRunning", true);
+            turnLeft();
+            //rb.transform.Translate(new Vector3(-moveSpeed * Time.deltaTime, 0, 0));
+            rb.AddForce(moveHorizontal);
+        }
     }
 
     public void moveUp(Animator anim)
@@ -54,14 +68,13 @@ public class ObjectMovement : MonoBehaviour
             anim.SetBool("isRunning", false);
             //rb.transform.Translate(new Vector3(0, jumpForce * Time.deltaTime, 0));
             rb.AddForce(moveVertical);
-            allowJump = false;
         }
     }
 
     public void idle(Animator anim)
     {
         anim.SetBool("isRunning", false);
-        anim.SetBool("isJumping", false);
+        anim.SetBool("isJumping", !allowJump);
     }
 
     public void turnRight()
@@ -73,10 +86,14 @@ public class ObjectMovement : MonoBehaviour
     {
         transform.localScale = new Vector2(1, 1);
     }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "ground" || collision.gameObject.tag == "planet")
             allowJump = true;
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "ground" || collision.gameObject.tag == "planet")
+            allowJump = false;
     }
 }
