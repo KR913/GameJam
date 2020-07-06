@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health_scr : MonoBehaviour
 {
-    [SerializeField] int Health = 5;
+    public int Health = 5;
     bool hitable = true;
     // Start is called before the first frame update
     void Start()
