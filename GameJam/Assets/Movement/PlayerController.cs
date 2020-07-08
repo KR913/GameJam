@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Animator anim;
+    //Animator anim;
     ObjectMovement obj;
     
     // Start is called before the first frame update
     void Start()
     {
-        anim = gameObject.GetComponent<Animator>();
+        //anim = gameObject.GetComponent<Animator>();
         obj = gameObject.GetComponent<ObjectMovement>();
     }
 
@@ -23,20 +23,20 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.D))
             {
-                obj.moveRight(anim);
+                obj.moveRight();
             }
             if (Input.GetKey(KeyCode.A))
             {
-                obj.moveLeft(anim);
+                obj.moveLeft();
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
-                obj.moveUp(anim);
+                obj.moveUp();
             }
         }
         else
         {
-            obj.idle(anim);
+            obj.idle();
         }
     }
 }

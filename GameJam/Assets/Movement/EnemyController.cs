@@ -16,19 +16,21 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rbEnemy = gameObject.GetComponent<Rigidbody2D>();
-        startPoint = rbEnemy.transform.position.x - distance;
-        endPoint = rbEnemy.transform.position.x + distance;
         anim = gameObject.GetComponent<Animator>();
         obj = gameObject.GetComponent<ObjectMovement>();
+        rbEnemy = gameObject.GetComponent<Rigidbody2D>();
+
+        startPoint = rbEnemy.transform.position.x - distance;
+        endPoint = rbEnemy.transform.position.x + distance;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (rbEnemy.transform.position.x >= endPoint || rbEnemy.transform.position.x <= startPoint)
+        if (rbEnemy.transform.position.x > endPoint || rbEnemy.transform.position.x < startPoint)
         {
-            if (rbEnemy.transform.position.x >= endPoint)
+            if (rbEnemy.transform.position.x > endPoint)
             {
                 moveRight = false;
             }
@@ -39,13 +41,13 @@ public class EnemyController : MonoBehaviour
         }
         if (moveRight == true)
         {
-            //anim.SetBool("isRunningEnemy", true);
-            obj.moveRight(anim);
+            //anim.SetBool("isRunning", true);
+            obj.moveRight();
         }
         else
         {
-            //anim.SetBool("isRunningEnemy", true);
-            obj.moveLeft(anim);
+            //anim.SetBool("isRunning", true);
+            obj.moveLeft();
         }
     }
 }

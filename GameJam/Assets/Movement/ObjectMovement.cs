@@ -10,6 +10,7 @@ public class ObjectMovement : MonoBehaviour
     [SerializeField] float accel;
     [SerializeField] float jumpForce;
     Rigidbody2D rb;
+    Animator anim;
     Vector2 moveHorizontal, moveVertical;
     bool allowJump = false;
 
@@ -17,11 +18,13 @@ public class ObjectMovement : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
-    {/*
+    {
+        /*
         if (rb.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             allowJump = true;
@@ -32,7 +35,7 @@ public class ObjectMovement : MonoBehaviour
         }*/
     }
 
-    public void moveRight(Animator anim)
+    public void moveRight()
     {
         if (rb.velocity.x < moveSpeed)
         {
@@ -40,12 +43,11 @@ public class ObjectMovement : MonoBehaviour
 
             anim.SetBool("isRunning", true);
             turnRight();
-            //rb.transform.Translate(new Vector3(moveSpeed * Time.deltaTime, 0, 0));
             rb.AddForce(moveHorizontal);
         }
     }
 
-    public void moveLeft(Animator anim)
+    public void moveLeft()
     {
         if (rb.velocity.x > -moveSpeed)
         {
@@ -53,12 +55,11 @@ public class ObjectMovement : MonoBehaviour
 
             anim.SetBool("isRunning", true);
             turnLeft();
-            //rb.transform.Translate(new Vector3(-moveSpeed * Time.deltaTime, 0, 0));
             rb.AddForce(moveHorizontal);
         }
     }
 
-    public void moveUp(Animator anim)
+    public void moveUp()
     {
         if (allowJump == true)
         {
@@ -66,12 +67,11 @@ public class ObjectMovement : MonoBehaviour
 
             anim.SetBool("isJumping", true);
             anim.SetBool("isRunning", false);
-            //rb.transform.Translate(new Vector3(0, jumpForce * Time.deltaTime, 0));
             rb.AddForce(moveVertical);
         }
     }
 
-    public void idle(Animator anim)
+    public void idle()
     {
         anim.SetBool("isRunning", false);
         anim.SetBool("isJumping", !allowJump);
