@@ -21,4 +21,8 @@ public class BulletMovement : MonoBehaviour
     {
         gameObject.transform.Translate(new Vector3(-movementSpeed*Mathf.Sign(gameObject.transform.localScale.x) * Time.deltaTime, 0, 0));
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        Destroy(gameObject, Time.deltaTime);
+    }
 }

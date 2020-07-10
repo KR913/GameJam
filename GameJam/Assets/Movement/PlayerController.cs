@@ -8,12 +8,14 @@ public class PlayerController : MonoBehaviour
 {
     //Animator anim;
     ObjectMovement obj;
+    BulletShoot bs;
     
     // Start is called before the first frame update
     void Start()
     {
         //anim = gameObject.GetComponent<Animator>();
         obj = gameObject.GetComponent<ObjectMovement>();
+        bs = gameObject.GetComponent<BulletShoot>();
     }
 
     // Update is called once per frame
@@ -37,6 +39,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             obj.idle();
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            bs.Fire();
         }
     }
 }

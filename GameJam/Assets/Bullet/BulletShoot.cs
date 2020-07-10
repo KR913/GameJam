@@ -18,10 +18,6 @@ public class BulletShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.B) && shootable)
-        {
-            Fire();
-        }
             
     }
     IEnumerator LoadingBullet()
@@ -32,9 +28,12 @@ public class BulletShoot : MonoBehaviour
     }
     public void Fire()
     {
-        GameObject Bullet_clone = Instantiate(Bullet, BarrelTrans.position, transform.rotation);
-        Bullet_clone.transform.localScale = BarrelTrans.lossyScale;
-        StartCoroutine(LoadingBullet());
-
+        Debug.Log("fire");
+        if (shootable)
+        {
+            GameObject Bullet_clone = Instantiate(Bullet, BarrelTrans.position, transform.rotation);
+            Bullet_clone.transform.localScale = BarrelTrans.lossyScale;
+            StartCoroutine(LoadingBullet());
+        }
     }
 }

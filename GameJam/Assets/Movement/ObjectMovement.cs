@@ -9,11 +9,12 @@ public class ObjectMovement : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float accel;
     [SerializeField] float jumpForce;
+    [SerializeField] float size = 1;
     Rigidbody2D rb;
     Animator anim;
     Vector2 moveHorizontal, moveVertical;
     bool allowJump = false;
-
+    public bool pause = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,67 +34,88 @@ public class ObjectMovement : MonoBehaviour
         {
             allowJump = false;
         }*/
+        if (pause)
+        {
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isJumping", false);
+        }
     }
 
     public void moveRight()
     {
-        if (rb.velocity.x < moveSpeed)
+        if (!pause)
         {
-            moveHorizontal = new Vector2(-transform.localScale.x * accel, 0);
+            if (rb.velocity.x < moveSpeed)
+            {
+                moveHorizontal = new Vector2(-transform.localScale.x * accel, 0);
 
-            anim.SetBool("isRunning", true);
-            turnRight();
-            rb.AddForce(moveHorizontal);
+                anim.SetBool("isRunning", true);
+                turnRight();
+                rb.AddForce(moveHorizontal);
+            }
         }
     }
 
     public void moveLeft()
     {
-        if (rb.velocity.x > -moveSpeed)
+        if (!pause)
         {
-            moveHorizontal = new Vector2(-transform.localScale.x * accel, 0);
+            if (rb.velocity.x > -moveSpeed)
+            {
+                moveHorizontal = new Vector2(-transform.localScale.x * accel, 0);
 
-            anim.SetBool("isRunning", true);
-            turnLeft();
-            rb.AddForce(moveHorizontal);
+                anim.SetBool("isRunning", true);
+                turnLeft();
+                rb.AddForce(moveHorizontal);
+            }
         }
     }
 
     public void moveUp()
     {
-        if (allowJump == true)
+        if (!pause)
         {
-            moveVertical = new Vector2(0, transform.localScale.y * jumpForce);
+            if (allowJump == true)
+            {
+                moveVertical = new Vector2(0, transform.localScale.y * jumpForce);
 
-            anim.SetBool("isJumping", true);
-            anim.SetBool("isRunning", false);
-            rb.AddForce(moveVertical);
+                anim.SetBool("isJumping", true);
+                anim.SetBool("isRunning", false);
+                rb.AddForce(moveVertical);
+            }
         }
     }
 
     public void idle()
     {
-        anim.SetBool("isRunning", false);
-        anim.SetBool("isJumping", !allowJump);
+        if (!pause)
+        {
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isJumping", !allowJump);
+        }
     }
 
     public void turnRight()
     {
-        transform.localScale = new Vector2(-1, 1);
+        if (!pause)
+        {
+            transform.localScale = new Vector2(-1 * size, 1 * size);
+        }
     }
 
     public void turnLeft()
     {
-        transform.localScale = new Vector2(1, 1);
+        if (!pause)
+        {
+            transform.localScale = new Vector2(1 * size, 1 * size);
+        }
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "ground" || collision.gameObject.tag == "planet")
-            allowJump = true;
+        allowJump = true;
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "ground" || collision.gameObject.tag == "planet")
-            allowJump = false;
+        allowJump = false;
     }
 }

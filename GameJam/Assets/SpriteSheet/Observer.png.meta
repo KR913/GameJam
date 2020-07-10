@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: ef7a335d57fc5b44ba49dc5090753e20
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Observer_0
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -104,7 +105,27 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Observer_0
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 109
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e30967ab8a7864f4091625050899758d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
