@@ -10,7 +10,9 @@ public class EnemyChase_Shoot : EnemyChase
     // Start is called before the first frame update
     void Start()
     {
-        obj = gameObject.GetComponent<ObjectMovement>();
+		startPoint = transform.position.x - distance;
+		endPoint = transform.position.x + distance;
+		obj = gameObject.GetComponent<ObjectMovement>();
         bs = gameObject.GetComponent<BulletShoot>();
     }
 
