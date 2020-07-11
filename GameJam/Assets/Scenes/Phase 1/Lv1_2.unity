@@ -362,6 +362,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 996764601476062961, guid: ac26e480e7d500e458d36ebd6a2e3848,
+        type: 3}
+      propertyPath: BulletLoadingTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac26e480e7d500e458d36ebd6a2e3848, type: 3}
 --- !u!1 &266686168
@@ -888,6 +893,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 996764601476062961, guid: ac26e480e7d500e458d36ebd6a2e3848,
+        type: 3}
+      propertyPath: BulletLoadingTime
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac26e480e7d500e458d36ebd6a2e3848, type: 3}
