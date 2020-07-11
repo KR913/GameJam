@@ -36,8 +36,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2253930166175181731}
-  - {fileID: 4754477094614065247}
   - {fileID: 3407755086236237113}
+  - {fileID: 4754477094614065247}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -272,7 +272,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2253930166162497433}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1631478068646141187
 SpriteRenderer:
@@ -329,11 +329,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2253930166162497433}
     m_Modifications:
-    - target: {fileID: 372777640880306294, guid: 7dc5a044d6d4f764d90c63ddbcffba9b,
-        type: 3}
-      propertyPath: m_Name
-      value: Heart
-      objectReference: {fileID: 0}
     - target: {fileID: 6748863902888630420, guid: 7dc5a044d6d4f764d90c63ddbcffba9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -372,7 +367,7 @@ PrefabInstance:
     - target: {fileID: 6748863902888630420, guid: 7dc5a044d6d4f764d90c63ddbcffba9b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6748863902888630420, guid: 7dc5a044d6d4f764d90c63ddbcffba9b,
         type: 3}
@@ -388,6 +383,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 372777640880306294, guid: 7dc5a044d6d4f764d90c63ddbcffba9b,
+        type: 3}
+      propertyPath: m_Name
+      value: Heart
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dc5a044d6d4f764d90c63ddbcffba9b, type: 3}

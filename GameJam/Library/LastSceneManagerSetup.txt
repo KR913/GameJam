@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/SpriteSheet/Phase 1/Phase_1_Stage_1.unity
+- path: Assets/Scenes/Phase1/LV1_1.unity
   isLoaded: 1
   isActive: 1

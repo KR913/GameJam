@@ -20,29 +20,36 @@ public class EnemyChase_Shoot : EnemyChase
         target = GameObject.FindGameObjectWithTag("Player");
         if (target != null)
         {
-            if (Mathf.Abs(target.transform.position.x - transform.position.x) > Avoid)
+            if (target.transform.position.x < endPoint && target.transform.position.x > startPoint)
             {
-                chase();
-            }
-            else
-            {
-                if ((target.transform.position.x - transform.position.x) * transform.localScale.x > 0)
+                if (Mathf.Abs(target.transform.position.x - transform.position.x) > Avoid)
                 {
                     chase();
                 }
                 else
                 {
-                    obj.idle();
+                    if ((target.transform.position.x - transform.position.x) * transform.localScale.x > 0)
+                    {
+                        chase();
+                    }
+                    else
+                    {
+                        obj.idle();
+                    }
                 }
             }
-            if (Mathf.Abs(target.transform.position.x - transform.position.x) < Range)
+            else
             {
-                bs.Fire();
+                obj.idle();
             }
         }
         else
         {
             obj.idle();
+        }
+        if (Mathf.Abs(target.transform.position.x - transform.position.x) < Range)
+        {
+            bs.Fire();
         }
     }
 }

@@ -15,7 +15,17 @@ public static class SaveSystem
         formatter.Serialize(stream, data);
         stream.Close();
     }
+    public static void SavePlayer(Health_scr player, int lv)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/playerHealth.savefile";
+        FileStream stream = new FileStream(path, FileMode.Create);
 
+        PlayerData_scr data = new PlayerData_scr(player,lv);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
     public static PlayerData_scr LoadLayer()
     {
         string path = Application.persistentDataPath + "/playerHealth.savefile";

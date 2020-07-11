@@ -112,7 +112,8 @@ public class ObjectMovement : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        allowJump = true;
+        if(rb.IsTouchingLayers(LayerMask.GetMask("Ground")))
+            allowJump = true;
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
