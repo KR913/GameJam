@@ -16,7 +16,7 @@ public class Health_scr : MonoBehaviour
             PlayerData_scr PD = SaveSystem.LoadLayer();
             if (PD == null)
             {
-                Health = 5;
+                Health = 10;
             }
             else
             {

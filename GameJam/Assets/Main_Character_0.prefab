@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83800d3233fe944468bd604f622656f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotate: 0
 --- !u!95 &2253930166162497443
 Animator:
   serializedVersion: 3
@@ -211,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 5
-  Player: 0
+  Player: 1
   heart: {fileID: 1837419197004579005}
 --- !u!1 &2253930166175181730
 GameObject:
@@ -329,6 +330,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2253930166162497433}
     m_Modifications:
+    - target: {fileID: 372777640880306294, guid: 7dc5a044d6d4f764d90c63ddbcffba9b,
+        type: 3}
+      propertyPath: m_Name
+      value: Heart
+      objectReference: {fileID: 0}
     - target: {fileID: 6748863902888630420, guid: 7dc5a044d6d4f764d90c63ddbcffba9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -383,11 +389,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 372777640880306294, guid: 7dc5a044d6d4f764d90c63ddbcffba9b,
-        type: 3}
-      propertyPath: m_Name
-      value: Heart
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dc5a044d6d4f764d90c63ddbcffba9b, type: 3}

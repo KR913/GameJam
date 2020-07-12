@@ -39,6 +39,7 @@ public class ObjectMovement : MonoBehaviour
             anim.SetBool("isRunning", false);
             anim.SetBool("isJumping", false);
         }
+        anim.SetBool("isJumping", !allowJump);
     }
 
     public void moveRight()
@@ -91,7 +92,6 @@ public class ObjectMovement : MonoBehaviour
         if (!pause)
         {
             anim.SetBool("isRunning", false);
-            anim.SetBool("isJumping", !allowJump);
         }
     }
 

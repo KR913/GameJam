@@ -7,7 +7,11 @@ public class PlayerData_scr
     // Start is called before the first frame update
     public int health;
     public int level;
-
+    public PlayerData_scr()
+    {
+        health = 10;
+        level = 0;
+    }
     public PlayerData_scr(Health_scr player)
     {
         health = player.Health;
