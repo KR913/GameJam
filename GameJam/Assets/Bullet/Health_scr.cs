@@ -37,7 +37,7 @@ public class Health_scr : MonoBehaviour
     IEnumerator Hitable_LoadingTime()
     {
         hitable = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         hitable = true;
     }
     IEnumerator hitstate()
