@@ -25,15 +25,6 @@ public class ObjectMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (rb.IsTouchingLayers(LayerMask.GetMask("Ground")))
-        {
-            allowJump = true;
-        }
-        else
-        {
-            allowJump = false;
-        }*/
         if (pause)
         {
             anim.SetBool("isRunning", false);
@@ -46,6 +37,10 @@ public class ObjectMovement : MonoBehaviour
     {
         if (!pause)
         {
+            if (rb.velocity.x < moveSpeed/2)
+            {
+                rb.velocity = new Vector2(moveSpeed / 2, rb.velocity.y);
+            }
             if (rb.velocity.x < moveSpeed)
             {
                 moveHorizontal = new Vector2(-transform.localScale.x * accel, 0);
@@ -61,6 +56,10 @@ public class ObjectMovement : MonoBehaviour
     {
         if (!pause)
         {
+            if (rb.velocity.x > -moveSpeed / 2)
+            {
+                rb.velocity = new Vector2(-moveSpeed / 2, rb.velocity.y);
+            }
             if (rb.velocity.x > -moveSpeed)
             {
                 moveHorizontal = new Vector2(-transform.localScale.x * accel, 0);
@@ -92,6 +91,14 @@ public class ObjectMovement : MonoBehaviour
         if (!pause)
         {
             anim.SetBool("isRunning", false);
+        }
+        if (rb.velocity.x != 0 && allowJump)
+        {
+            rb.velocity -= new Vector2(rb.velocity.x / 2, 0);
+        }
+        else
+        {
+            rb.velocity -= new Vector2(rb.velocity.x *Time.deltaTime, 0);
         }
     }
 
